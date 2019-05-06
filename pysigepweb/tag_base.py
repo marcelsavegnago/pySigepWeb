@@ -24,8 +24,8 @@
 
 from lxml import etree
 import os, sys
-from xsd import *
-from pysigep_exception import ErroValidacaoXML
+from .xsd import *
+from .pysigep_exception import ErroValidacaoXML
 
 
 class TagBase(object):

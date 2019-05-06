@@ -22,7 +22,7 @@
 #
 ##############################################################################
 
-from etiqueta import Etiqueta
+from .etiqueta import Etiqueta
 
 
 class RespostaSolicitaIntervaloEtiquetas(object):

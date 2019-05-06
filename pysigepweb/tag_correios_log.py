@@ -22,8 +22,8 @@
 #
 ##############################################################################
 
-from tag_base import TagBase
-from tag_forma_de_pagamento import TagFormaDePagamento
+from .tag_base import TagBase
+from .tag_forma_de_pagamento import TagFormaDePagamento
 
 
 class TagCorreiosLog(TagBase):

@@ -23,7 +23,7 @@
 ##############################################################################
 
 from PIL import Image, ImageDraw, ImageFont
-from StringIO import StringIO
+from io import StringIO
 import io
 import base64
 import os

@@ -39,14 +39,14 @@ class TestWebserviceAtendeCliente(unittest.TestCase):
     def setUp(self):
 
         try:
-            print u'[INFO] Iniciando Serviço de Atendimento ao  Cliente'
+            print (u'[INFO] Iniciando Serviço de Atendimento ao  Cliente')
             self.sv = WebserviceAtendeCliente(WebserviceAtendeCliente.AMBIENTE_HOMOLOGACAO)
         except ErroConexaoComServidor as e:
-            print e.message
+            print (e.message)
 
     def test_consulta_status_cartao_postagem(self):
 
-        print 'Cosultando dados do cliente'
+        print ('Cosultando dados do cliente')
         cliente = self.sv.busca_cliente(CONTRATO, CARTAO_POSTAGEM, LOGIN, SENHA)
         #
         #
@@ -55,23 +55,23 @@ class TestWebserviceAtendeCliente(unittest.TestCase):
 
 
     def test_consulta_cep(self):
-        print '[INFO] Consulta cep: %s' % '70002900'
+        print ('[INFO] Consulta cep: %s' % '70002900')
 
         end_erp = self.sv.consulta_cep('70002900')
 
-        print 'CEP:', end_erp.cep
+        print ('CEP:', end_erp.cep)
         self.assertEqual(end_erp.cep, '70002900')
 
-        print 'Bairro: ', end_erp.bairro
+        print ('Bairro: ', end_erp.bairro)
         self.assertEqual(end_erp.bairro, 'Asa Norte')
 
-        print 'Cidade: ', end_erp.cidade
+        print ('Cidade: ', end_erp.cidade)
         self.assertEqual(end_erp.cidade, u'Brasília')
 
-        print u'Endereço: ', end_erp.end
+        print (u'Endereço: ', end_erp.end)
         self.assertEqual(end_erp.end, 'SBN Quadra 1 Bloco A')
 
-        print 'UF:', end_erp.uf
+        print ('UF:', end_erp.uf)
         self.assertEqual(end_erp.uf, 'DF')
 
         # print 'Complemento: ', end_erp.complemento

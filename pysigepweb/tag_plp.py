@@ -22,7 +22,7 @@
 #
 ##############################################################################
 
-from tag_base import TagBase
+from .tag_base import TagBase
 
 
 class TagPLP(TagBase):

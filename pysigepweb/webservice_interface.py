@@ -25,13 +25,13 @@
 try:
     from suds import client
     from suds import WebFault
-    from urllib2 import URLError
+    from urllib import URLError
 except ImportError as exp:
-    print (exp.message)
+    print (exp)
     print ('Python module suds not installed. ' \
           'Please install with: sudo pip install suds')
 
-from pysigep_exception import *
+from .pysigep_exception import *
 
 
 class WebserviceInterface(object):
@@ -42,4 +42,4 @@ class WebserviceInterface(object):
         try:
             self._service = client.Client(url).service
         except client.TransportError as e:
-            raise ErroConexaoComServidor(e.message)
+            raise ErroConexaoComServidor(e)

@@ -23,7 +23,7 @@
 ##############################################################################
 
 import urllib
-from resposta_rastreamento import *
+from .resposta_rastreamento import *
 
 
 class WebserviceRastreamento(object):
@@ -61,8 +61,8 @@ class WebserviceRastreamento(object):
         }
 
         # Realizamos o rastreamento das etiquetas fornecidas
-        query = urllib.urlencode(params)
-        f = urllib.urlopen(WebserviceRastreamento._URL, query)
+        query = urllib.parse.urlencode(params)
+        f = urllib.request.urlopen(WebserviceRastreamento._URL, query)
         xml = f.read()
         f.close()
 

@@ -21,7 +21,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from tag_base import TagBase
+from .tag_base import TagBase
 
 
 class TagDestinatario(TagBase):

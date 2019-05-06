@@ -22,8 +22,8 @@
 #
 ##############################################################################
 
-from diretoria import *
-from servico_postagem import *
+from .diretoria import *
+from .servico_postagem import *
 
 
 class CartaoPostagem(object):

@@ -22,8 +22,8 @@
 #
 ##############################################################################
 
-from tag_base import TagBase
-from dimensao import *
+from .tag_base import TagBase
+from .dimensao import *
 
 
 class TagDimensaoObjeto(Dimensao, TagBase):

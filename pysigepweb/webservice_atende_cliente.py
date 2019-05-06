@@ -22,13 +22,14 @@
 #
 ##############################################################################
 
-from webservice_interface import *
-from ambiente import FabricaAmbiente
-from resposta_busca_cliente import *
-from etiqueta import Etiqueta
-from resposta_fecha_plp_varios_servicos import RespostaFechaPLPVariosServicos
-from resposta_solicita_intervalo_etiquetas import RespostaSolicitaIntervaloEtiquetas
-import chancela
+from .webservice_interface import *
+from .ambiente import FabricaAmbiente
+from .resposta_busca_cliente import *
+from .etiqueta import Etiqueta
+from .resposta_fecha_plp_varios_servicos import RespostaFechaPLPVariosServicos
+from .resposta_solicita_intervalo_etiquetas import RespostaSolicitaIntervaloEtiquetas
+#import chancela
+from . import chancela
 
 
 class WebserviceAtendeCliente(WebserviceInterface):
@@ -85,7 +86,7 @@ class WebserviceAtendeCliente(WebserviceInterface):
             return cliente
 
         except WebFault as e:
-            raise ErroConexaoComServidor(e.message)
+            raise ErroConexaoComServidor(e)
 
     def verifica_disponibilidade_servicos(self, lista_servico_postagem,
                                           codigo_admin, cep_origem,
@@ -114,7 +115,7 @@ class WebserviceAtendeCliente(WebserviceInterface):
 
                 res[sp.nome] = str(status)
             except WebFault as e:
-                raise ErroConexaoComServidor(e.message)
+                raise ErroConexaoComServidor(e)
 
         return res
 
@@ -129,7 +130,7 @@ class WebserviceAtendeCliente(WebserviceInterface):
             res = self._service.consultaCEP(cep)
             return res
         except WebFault as e:
-            raise ErroConexaoComServidor(e.message)
+            raise ErroConexaoComServidor(e)
 
     def consulta_status_cartao_postagem(self, num_cartao, cliente):
         try:
@@ -137,7 +138,7 @@ class WebserviceAtendeCliente(WebserviceInterface):
                                                              cliente.login,
                                                              cliente.senha))
         except WebFault as e:
-            raise ErroConexaoComServidor(e.message)
+            raise ErroConexaoComServidor(e)
 
     def solicita_etiquetas(self, servico_postagem, qtd_etiquetas, cliente,
                            tipo_destinatario='C'):
@@ -146,7 +147,7 @@ class WebserviceAtendeCliente(WebserviceInterface):
                 tipo_destinatario, cliente.cnpj, servico_postagem.identificador,
                 qtd_etiquetas, cliente.login, cliente.senha)
         except WebFault as e:
-            raise ErroConexaoComServidor(e.message)
+            raise ErroConexaoComServidor(e)
 
         etiqueta_inicial = faixa_etiquetas.split(',')[0]
         etiqueta_numero = int(etiqueta_inicial[2:10])
@@ -171,7 +172,7 @@ class WebserviceAtendeCliente(WebserviceInterface):
                 tipo_destinatario, cliente.cnpj, servico_postagem.identificador,
                 qtd_etiquetas, cliente.login, cliente.senha)
         except WebFault as e:
-            raise ErroConexaoComServidor(e.message)
+            raise ErroConexaoComServidor(e)
 
         res = RespostaSolicitaIntervaloEtiquetas(faixa_etiquetas, qtd_etiquetas)
 
@@ -200,7 +201,7 @@ class WebserviceAtendeCliente(WebserviceInterface):
             dig_verif_list = self._service.geraDigitoVerificadorEtiquetas(
                 etiquetas_sem_digito, cliente.login, cliente.senha)
         except WebFault as exc:
-            raise ErroConexaoComServidor(exc.message)
+            raise ErroConexaoComServidor(exc)
 
         return dig_verif_list
 
@@ -250,7 +251,7 @@ class WebserviceAtendeCliente(WebserviceInterface):
                 return RespostaFechaPLPVariosServicos(xml, id_plp_cliente)
 
             except WebFault as exc:
-                raise ErroConexaoComServidor(exc.message)
+                raise ErroConexaoComServidor(exc)
 
     @staticmethod
     def _formata_cep(cep):

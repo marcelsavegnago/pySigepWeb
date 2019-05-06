@@ -22,7 +22,7 @@
 #
 ##############################################################################
 
-from pysigep_exception import ErroTamanhoParamentroIncorreto
+from .pysigep_exception import ErroTamanhoParamentroIncorreto
 
 
 class Etiqueta(object):

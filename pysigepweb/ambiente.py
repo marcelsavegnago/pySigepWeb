@@ -72,4 +72,4 @@ class FabricaAmbiente(object):
             return FabricaAmbiente._ambientes[nome_ambiente]()
         except KeyError as exc:
             exit(u'[ERRO] Não existe Ambiente com o nome fornecido: \"%s\"' \
-                 % exc.message)
+                 % exc)

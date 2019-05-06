@@ -22,8 +22,8 @@
 #
 ##############################################################################
 
-from webservice_interface import *
-from resposta_calcula_preco_prazo import RespostaCalculaPrecoPrazo
+from .webservice_interface import *
+from .resposta_calcula_preco_prazo import RespostaCalculaPrecoPrazo
 
 
 class WebserviceCalculaPrecoPrazo(WebserviceInterface):
@@ -89,4 +89,4 @@ class WebserviceCalculaPrecoPrazo(WebserviceInterface):
             return result
 
         except WebFault as exc:
-            raise ErroConexaoComServidor(exc.message)
+            raise ErroConexaoComServidor(exc)
