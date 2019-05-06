@@ -50,8 +50,8 @@ class TagServicoAdicional(TagBase):
 
         if not valor_declarado and self._tipo_servico[
                 tipo_servico_adicional] == '019':
-            print '[ALERTA] Para Servico Adicional do tipo Valor ' \
-                  'Declarado, torna-se obrigatorio informar o valor declarado!'
+            print ('[ALERTA] Para Servico Adicional do tipo Valor ' \
+                  'Declarado, torna-se obrigatorio informar o valor declarado!')
             return
 
         self.lista_tipo_servico_adicional.append(

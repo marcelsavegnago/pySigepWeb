@@ -27,9 +27,9 @@ try:
     from suds import WebFault
     from urllib2 import URLError
 except ImportError as exp:
-    print exp.message
-    print 'Python module suds not installed. ' \
-          'Please install with: sudo pip install suds'
+    print (exp.message)
+    print ('Python module suds not installed. ' \
+          'Please install with: sudo pip install suds')
 
 from pysigep_exception import *
 
@@ -38,7 +38,7 @@ class WebserviceInterface(object):
 
     def __init__(self, url):
         self._url = url
-        print '[INFO] Start SIGEPWEB webservice connection...'
+        print ('[INFO] Start SIGEPWEB webservice connection...')
         try:
             self._service = client.Client(url).service
         except client.TransportError as e:
